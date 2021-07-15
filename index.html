@@ -1,4 +1,7 @@
+
+<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <title>echoingcat</title>
@@ -14,6 +17,7 @@
     <link rel="shortcut icon" id='favicon' href="/renge.png" type="image/png"/>
 </head>
 <html>
+
 <body>
     <div class="loopDiv" id="loopDiv" onclick="video.paused ? video.play() : video.pause();">
     </div>
@@ -21,6 +25,7 @@
         <video playsinline autoplay loop id="myVideo">
         </video>
     </div>
+
     <style>
         * {
             transition: all 0.15s ease-in-out;
@@ -56,6 +61,8 @@
             object-fit: cover;
 
         }
+
+
         @media only screen and (max-width: 5000px) {
             #myVideo {
                 position: fixed;
@@ -69,9 +76,14 @@
             }
         }
     </style>
+
     <script>
-            var video = document.querySelector('video'),
-            var activeVideoUrl = '/miyauchi_renge_flute.mp4';
+        
+        var videoStorage = [
+            '/miyauchi_renge_flute.mp4'
+        ],
+            video = document.querySelector('video'),
+            activeVideoUrl = videoStorage[Math.round(Math.random() * (videoStorage.length - 1))];
 
         if (video.canPlayType('video/mp4')) {
             video.setAttribute('src', activeVideoUrl + '');
@@ -86,6 +98,12 @@
         $(video).on("click", function (e) {
             video.muted = !video.muted;
         });
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = activeVideoUrl;
+        }
     </script>
+
 </body>
+
 </html>
