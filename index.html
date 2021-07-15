@@ -1,7 +1,4 @@
-
-<!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8" />
     <title>echoingcat</title>
@@ -17,7 +14,6 @@
     <link rel="shortcut icon" id='favicon' href="/renge.png" type="image/png"/>
 </head>
 <html>
-
 <body>
     <div class="loopDiv" id="loopDiv" onclick="video.paused ? video.play() : video.pause();">
     </div>
@@ -53,18 +49,6 @@
         }
 
         #myVideo {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-
-        }
-
-
-        @media only screen and (max-width: 5000px) {
-            #myVideo {
                 position: fixed;
                 top: 50%;
                 left: 50%;
@@ -74,52 +58,21 @@
                 height: auto;
                 transform: translateX(-50%) translateY(-50%);
             }
-        }
     </style>
 
     <script>
-        
-        var videoStorage = [
-            '/miyauchi_renge_flute.mp4'
-        ],
             video = document.querySelector('video'),
-            activeVideoUrl = videoStorage[Math.round(Math.random() * (videoStorage.length - 1))];
-
+            activeVideoUrl = /miyauchi_renge_flute.mp;
         if (video.canPlayType('video/mp4')) {
             video.setAttribute('src', activeVideoUrl + '');
         } else if (video.canPlayType('video/webm')) {
             video.setAttribute('src', activeVideoUrl + '');
         }
-
         document.getElementById('myVideo').play();
-
         var video = document.getElementById('myVideo');
-
         $(video).on("click", function (e) {
             video.muted = !video.muted;
         });
-
-        function myFunction() {
-            document.getElementById("demo").innerHTML = activeVideoUrl;
-        }
-
-        var video = document.getElementById('myVideo');
-        function replay() {
-            video.pause();
-            video.currentTime = 0;
-            video.load();
-        }
-
-        video.setAttribute("src", videoStorage[Math.round(Math.random() * (videoStorage.length - 1))]);
-        function next() {
-            video.pause();
-            video.setAttribute("src", videoStorage[Math.round(Math.random() * (videoStorage.length - 1))]);
-            video.currentTime = 0;
-            video.load();
-        }
-
-    </script>
-
+</script>
 </body>
-
 </html>
